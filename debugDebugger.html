@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="vendor/chrome-bootstrap.css">
+        <link rel="stylesheet" href="vendor/layout.css">
+        <link rel="stylesheet" href="vendor/onyx.css">
+        <link rel="stylesheet" href="vendor/debugger.css">
+
+        <script src="vendor/enyo.js"></script>
+        <script src="vendor/layout.js"></script>
+        <script src="vendor/onyx.js"></script>
+
+        <script src="src/package.js"></script>
+        <script>
+            enyo.ready(function(){
+                var app = new enyo.DebugExtension({
+                    versions: window.enyo.version,
+                    platform: window.enyo.platform
+                });
+                app.renderInto(document.body);
+            });
+        </script>
+    </head>
+<body class="chrome-bootstrap">
+</body>
+</html>

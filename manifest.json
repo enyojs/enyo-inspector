@@ -1,0 +1,32 @@
+{
+    "name": "Enyo Inspector",
+    "version": "0.1",
+    "description": "An inspector tool, to help Enyo development.",
+    "devtools_page": "devtools.html",
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "icons": {
+        "16":  "images/icon16.png",
+        "48":  "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["content-script.js"],
+        "run_at": "document_end",
+        "all_frames": true
+    }],
+    "permissions": [
+        "tabs",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "manifest_version": 2,
+    "web_accessible_resources": [
+        "inserted-script.js"
+    ]
+}
