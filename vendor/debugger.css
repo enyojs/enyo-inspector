@@ -1,2 +1,63 @@
-button.menuButton{height:35px;background:rgb(79,118,216);width:100%;border:0;box-shadow:none;border-radius:0;color:#fff;text-shadow:none;text-align:left;}
-.sidePanel{width:200px;background:#eee;height:100%;border-right:1px solid #ccc;padding:0px;}
+body, html {
+    height: 100%;
+}
+
+button.menuButton {
+    height: 35px;
+    width: 100%;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    color: #000;
+    text-shadow: none;
+    text-align: left;
+}
+
+button.menuButton.active {
+	background: rgb(79,118,216);
+	color: #fff;
+}
+
+.sidePanel {
+    width: 200px;
+    background: #eee;
+    height: 100%;
+    border-right: 1px solid #ccc;
+    padding: 0px;
+}
+
+.hello {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.onyx-groupbox-header {
+	padding: 2px 10px;
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: inherit;
+	border: none;
+	background: inherit;
+}
+
+.onyx-groupbox > * {
+	border-style: inherit;
+}
+
+.repeater-item {
+	padding:4px;
+	margin:10px;
+	border:1px solid lightgray;
+	background-color: #eee;
+}
+.repeater-item .first-cell {
+	width:150px;
+	display:inline-block;
+	text-align:right;
+	margin-right: 10px;
+}
+

@@ -1,15 +1,13 @@
-enyo-inspector
-==============
+Enyo Dev Tools
+===
 
-an inspector for enyo js, inspired by ember-inspector
+Bean Bird is here to help you build better Enyo apps today!
 
+Installation
+===
 
-buggy and incomplete
-====================
-
-* Needs to be reloaded when tabs are changed, and dev tools is opened.
-* Load as Unpacked Extension.
-* Open Chrome Dev Tools
-* Open Enyo Tab
-* Refresh page (these are events we should parse for profiling, ensuring fresh page load)
+ * Open [chrome://extensions](chrome://extensions)
+ * Enable 'Developer Mode' checkbox
+ * Click 'Load unpacked extensions...'
+ * Select the `devtools-extension` folder
 
