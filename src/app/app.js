@@ -7,9 +7,11 @@ enyo.kind({
         {name:'stats', kind:'enyo.DebugExtension.StatsController'}
     ],
     render: function(){
-        this.$.stats.versions = this.versions;
-        this.$.stats.platform = this.platform;
-        this.view.set('controller', this.$.stats);
-        this.inherited(arguments);
+		if(this.hasEnyo){
+			this.$.stats.versions = this.versions;
+			this.$.stats.platform = this.platform;
+			this.view.set('controller', this.$.stats);
+			this.inherited(arguments);
+		}
     }
 });

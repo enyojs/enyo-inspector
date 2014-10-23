@@ -11,6 +11,7 @@ var bugger = {
 function run() {
     window.postMessage({
         type: 'enyoVersion',
+		hasEnyo: bugger.hasEnyo(),
         versions: enyo.version,
         platform: enyo.platform
     }, '*');
