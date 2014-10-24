@@ -7,10 +7,12 @@
         name: "Enyo Communication" //Given a Name
     });
 
+	// Holds instances of Enyo that are debugging
+	var apps = [];
     // Listen to messages from the background page
     port.onMessage.addListener(function (message) {
       //update debugger app
-      var app = new enyo.DebugExtension(message);
+      var app = apps[message.name] || (apps[message.name] = new enyo.DebugExtension(message));
       app.renderInto(document.body);
     });
 

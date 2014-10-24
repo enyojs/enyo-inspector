@@ -1,7 +1,6 @@
 // This is included and executed in the inspected page
 // chrome.devtools.*
 // chrome.extension.*
-
 ;(function(){
 
 	function run() {

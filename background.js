@@ -1,10 +1,11 @@
 // Chrome automatically creates a background.html page for this to execute.
 // This can access the inspected page via executeScript
+var pages = [];
 chrome.extension.onConnect.addListener(function (port) {
-
     var extensionListener = function (message, sender, sendResponse) {
 
         if(message.type === "enyoVersion"){
+			message.name = sender.id;
             port.postMessage(message);
         }
 
