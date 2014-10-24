@@ -1,3 +1,11 @@
+html.noEnyo {
+	background: url(../images/bean-bird-space.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
 body, html {
     height: 100%;
 }
@@ -31,6 +39,16 @@ button.menuButton.active {
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
+}
+
+html.noEnyo .hello img {
+	display: none;
+}
+
+html.noEnyo .hello h1 {
+	font-size: 2em;
+	color: #fff;
+	text-shadow: #333 3px 1px 1px;
 }
 
 .onyx-groupbox-header {

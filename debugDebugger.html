@@ -14,6 +14,7 @@
         <script>
             enyo.ready(function(){
                 var app = new enyo.DebugExtension({
+					hasEnyo: false,
                     versions: window.enyo.version,
                     platform: window.enyo.platform
                 });
@@ -22,5 +23,9 @@
         </script>
     </head>
 <body class="chrome-bootstrap">
+	<div class="hello">
+		<h1 id="hello-msg">Please Reload the Window, with Dev Tools Open.</h1><br/>
+		<img src="images/bean_bird_sleep.png"/>
+	</div>
 </body>
 </html>

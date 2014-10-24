@@ -40,7 +40,6 @@ chrome.extension.onConnect.addListener(function (port) {
 
 });
 
-
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     return true;
 });

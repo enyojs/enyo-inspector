@@ -1,6 +1,6 @@
 // This creates and maintains the communication channel between
 // the inspectedPage and the dev tools panel.
-(function createChannel() {
+;(function createChannel() {
 
     //Create a port with background page for continous message communication
     var port = chrome.extension.connect({
