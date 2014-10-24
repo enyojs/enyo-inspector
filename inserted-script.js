@@ -17,13 +17,13 @@
 		chrome.extension.sendMessage(message, function(message){});
 	}
 
-	var pollTimeOut = 5;
+	var pollTimeOutTries = 5;
 	var pollCounter = 0;
 	var pollEnyo = function pollEnyo(){
 		window.clearTimeout(pollEnyo);
 		if(typeof window.enyo === "undefined"){
 			pollCounter += 1;
-			if(pollCounter < pollTimeOut){
+			if(pollCounter < pollTimeOutTries){
 				setTimeout(pollEnyo, 200);
 			} else {
 				window.postMessage({
