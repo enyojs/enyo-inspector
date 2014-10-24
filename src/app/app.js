@@ -7,6 +7,7 @@ enyo.kind({
         {name:'stats', kind:'enyo.DebugExtension.StatsController'}
     ],
     render: function(){
+		console.log(this.hasEnyo);
 		if(this.hasEnyo){
 			this.$.stats.versions = this.versions;
 			this.$.stats.platform = this.platform;
