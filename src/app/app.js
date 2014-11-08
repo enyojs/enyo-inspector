@@ -1,3 +1,7 @@
+function _getEnyoInfo() {
+	return 'test';
+}
+
 // This one acts in the context of the panel in the Dev Tools
 enyo.kind({
     name: 'enyo.DebugExtension',
@@ -6,6 +10,27 @@ enyo.kind({
     components: [
         {name:'stats', kind:'enyo.DebugExtension.StatsController'}
     ],
+	create: function() {
+		this.inherited(arguments);
+
+		//insert our inspection script
+		chrome.devtools.inspectedWindow.eval(
+			_getEnyoInfo.toString(),
+			enyo.bind(this, function(result, isException) {
+				if (isException) {
+					alert(chrome.runtime.lastError.message);
+				}
+			})
+		);
+
+		//execute the inserted script
+		chrome.devtools.inspectedWindow.eval(
+			'_getEnyoInfo()',
+			enyo.bind(this, function(result, isException) {
+				document.getElementsByTagName('html')[0].innerHTML  = JSON.stringify(result);
+			})
+		);
+	},
     render: function(){
 		if(this.hasEnyo){
 			this.$.stats.versions = this.versions;

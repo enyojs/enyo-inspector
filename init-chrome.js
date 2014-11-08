@@ -9,12 +9,21 @@
 
 	// Holds instances of Enyo that are debugging
 	var apps = [];
+
     // Listen to messages from the background page
     port.onMessage.addListener(function (message) {
-      //update debugger app
-      var app = apps[message.name] || (apps[message.name] = new enyo.DebugExtension(message));
-      app.renderInto(document.body);
+	  //create performance hooks and stuff stuff here
+
+
     });
+
+	enyo.ready(function(){
+		new enyo.DebugExtension({
+			hasEnyo: true,
+			versions: [],
+			platform: []
+		}).renderInto(document.body);
+	});
 
 }());
 
