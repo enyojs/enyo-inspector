@@ -12,16 +12,16 @@
 
     // Listen to messages from the background page
     port.onMessage.addListener(function (message) {
-	  //create performance hooks and stuff stuff here
+	  //create performance stuff here
 
-
+      //update debugger app
+      var app = apps[message.name] || (apps[message.name] = new enyo.DebugExtension(message));
+      app.renderInto(document.body);
     });
 
 	enyo.ready(function(){
 		new enyo.DebugExtension({
-			hasEnyo: true,
-			versions: [],
-			platform: []
+			hasEnyo: true
 		}).renderInto(document.body);
 	});
 

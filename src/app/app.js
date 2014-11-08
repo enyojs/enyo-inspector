@@ -1,5 +1,10 @@
 function _getEnyoInfo() {
-	return 'test';
+	var e = {
+		versions: enyo.version,
+		platform: enyo.platform
+	};
+
+	return e;
 }
 
 // This one acts in the context of the panel in the Dev Tools
@@ -13,7 +18,7 @@ enyo.kind({
 	create: function() {
 		this.inherited(arguments);
 
-		//insert our inspection script
+		//insert our
 		chrome.devtools.inspectedWindow.eval(
 			_getEnyoInfo.toString(),
 			enyo.bind(this, function(result, isException) {
@@ -23,19 +28,17 @@ enyo.kind({
 			})
 		);
 
-		//execute the inserted script
 		chrome.devtools.inspectedWindow.eval(
 			'_getEnyoInfo()',
 			enyo.bind(this, function(result, isException) {
-				document.getElementsByTagName('html')[0].innerHTML  = JSON.stringify(result);
+				this.$.stats.versions = result.versions;
+				this.$.stats.platform = result.platform;
+				this.view.set('controller', this.$.stats);
 			})
 		);
 	},
     render: function(){
 		if(this.hasEnyo){
-			this.$.stats.versions = this.versions;
-			this.$.stats.platform = this.platform;
-			this.view.set('controller', this.$.stats);
 			this.inherited(arguments);
 		} else {
 			document.getElementById('hello-msg').innerHTML = 'Unable to locate Enyo on the inspected page.';

@@ -19,6 +19,11 @@ enyo.kind({
 		for(key in p) {
 			this.platformCollection.add({name:key, version: p[key]});
 		}
+
+		this.$.versionRepeater.setCount(this.versionCollection.length);
+		this.$.platformRepeater.setCount(this.platformCollection.length);
+
+		this.render();
     },
 	setupItem: function(sender, event){
 		var collections = {
@@ -68,8 +73,6 @@ enyo.kind({
     ],
     rendered: function(){
         this.adjustHeight();
-		this.$.versionRepeater.setCount(this.versionCollection.length);
-		this.$.platformRepeater.setCount(this.platformCollection.length);
         this.inherited(arguments);
     },
     resizeHandler: function(){
