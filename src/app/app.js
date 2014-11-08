@@ -9,7 +9,8 @@ function _getEnyoInfo() {
 		ret = {
 			noEnyo: false,
 			versions: enyo.version,
-			platform: enyo.platform
+			platform: enyo.platform,
+			store: enyo.store
 		};
 	}
 
@@ -26,7 +27,8 @@ enyo.kind({
     kind: 'enyo.Application',
     view: 'enyo.DebugExtension.DebugView',
     components: [
-        {name:'stats', kind:'enyo.DebugExtension.StatsController'}
+        {name:'stats', kind:'enyo.DebugExtension.StatsController'},
+        {name:'store', kind:'enyo.DebugExtension.StoreController'}
     ],
 	create: function() {
 		this.inherited(arguments);
@@ -81,5 +83,5 @@ enyo.kind({
 				document.getElementsByTagName('html')[0].className += ' noEnyo';
 			}
 		}
-    }
+    },
 });

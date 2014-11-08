@@ -1,11 +1,11 @@
 enyo.kind({
 	name: 'enyo.DebugExtension.Pages.Info',
 	published:{
-        controller: {}
-    },
-    controllerChanged:function(){
-        var s = this.controller.versions;
-        var p = this.controller.platform;
+		controller: {}
+	},
+	controllerChanged:function(){
+		var s = this.controller.versions;
+		var p = this.controller.platform;
 
 		this.versionCollection = new enyo.Collection();
 		this.platformCollection = new enyo.Collection();

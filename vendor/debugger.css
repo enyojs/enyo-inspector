@@ -56,6 +56,21 @@ html.noEnyo .hello h1 {
     text-shadow:#333 3px 1px 1px
 }
 
+div.noEnyo {
+	display: block;
+}
+
+html.noEnyo div.noEnyo {
+	display: block;
+	color: #fff;
+	text-shadow:#333 3px 1px 1px
+}
+
+html.noEnyo div.noEnyo h3 {
+	display: block;
+	color: #fff;
+}
+
 .onyx-groupbox-header {
     padding:2px 10px;
     color:#000;
