@@ -16,6 +16,10 @@ function _getEnyoInfo() {
 	return ret;
 }
 
+function insideDevTools() {
+	return (chrome && chrome.devtools)
+}
+
 // This one acts in the context of the panel in the Dev Tools
 enyo.kind({
     name: 'enyo.DebugExtension',
@@ -26,6 +30,18 @@ enyo.kind({
     ],
 	create: function() {
 		this.inherited(arguments);
+
+		if(!insideDevTools()) {
+			var result = _getEnyoInfo();
+
+			this.$.stats.versions = result.versions;
+			this.$.stats.platform = result.platform;
+			this.view.set('controller', this.$.stats);
+
+			this.canRender = true;
+			this.render();
+			return;
+		}
 
 		//insert our
 		chrome.devtools.inspectedWindow.eval(
