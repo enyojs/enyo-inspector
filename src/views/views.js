@@ -45,6 +45,7 @@ enyo.kind({
          {classes:'sidePanel', components:[
              {classes: 'menuButton active', kind:'enyo.Button', content: 'Debug Info'},
              {classes: 'menuButton', kind:'enyo.Button', content: 'Storage Info'},
+             {classes: 'menuButton', kind:'enyo.Button', content: 'Tools'},
          ]},
          {fit:true, components:[
 			 {kind: "enyo.Scroller", style:'height:100%', components:[

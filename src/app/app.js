@@ -1,10 +1,19 @@
+//this function is eval inside the inspected page
 function _getEnyoInfo() {
-	var e = {
-		versions: enyo.version,
-		platform: enyo.platform
-	};
 
-	return e;
+	var ret = {
+		noEnyo: true
+	}
+
+	if(typeof enyo == 'object') {
+		ret = {
+			noEnyo: false,
+			versions: enyo.version,
+			platform: enyo.platform
+		};
+	}
+
+	return ret;
 }
 
 // This one acts in the context of the panel in the Dev Tools
@@ -31,18 +40,30 @@ enyo.kind({
 		chrome.devtools.inspectedWindow.eval(
 			'_getEnyoInfo()',
 			enyo.bind(this, function(result, isException) {
-				this.$.stats.versions = result.versions;
-				this.$.stats.platform = result.platform;
-				this.view.set('controller', this.$.stats);
+
+				this.canRender = true;
+				this.noEnyo = result.noEnyo;
+				this.render();
+
+				if(!result.noEnyo){
+					this.$.stats.versions = result.versions;
+					this.$.stats.platform = result.platform;
+					this.view.set('controller', this.$.stats);
+				} else {
+
+				}
 			})
 		);
+
 	},
     render: function(){
-		if(this.hasEnyo){
-			this.inherited(arguments);
-		} else {
-			document.getElementById('hello-msg').innerHTML = 'Unable to locate Enyo on the inspected page.';
-			document.getElementsByTagName('html')[0].className += ' noEnyo';
+		if(this.canRender){
+			if(!this.noEnyo){
+				this.inherited(arguments);
+			} else {
+				document.getElementById('hello-msg').innerHTML = 'Unable to locate Enyo on the inspected page.';
+				document.getElementsByTagName('html')[0].className += ' noEnyo';
+			}
 		}
     }
 });
