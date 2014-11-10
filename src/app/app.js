@@ -36,8 +36,8 @@ enyo.kind({
 		if(!insideDevTools()) {
 			var result = _getEnyoInfo();
 
-			this.$.stats.versions = result.versions;
-			this.$.stats.platform = result.platform;
+			this.$.stats.setVersions(result.versions);
+			this.$.stats.setPlatform(result.platform);
 			this.view.set('controller', this.$.stats);
 
 			this.canRender = true;
@@ -45,14 +45,14 @@ enyo.kind({
 			return;
 		}
 
-		//insert our
+		//insert our eval
 		chrome.devtools.inspectedWindow.eval(
 			_getEnyoInfo.toString(),
-			enyo.bind(this, function(result, isException) {
+			function(result, isException) {
 				if (isException) {
 					alert(chrome.runtime.lastError.message);
 				}
-			})
+			}
 		);
 
 		chrome.devtools.inspectedWindow.eval(
