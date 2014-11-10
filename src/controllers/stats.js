@@ -5,6 +5,10 @@ enyo.kind({
 		versions: {},
 		platform: {}
 	},
+	events: {
+    	onVersionsUpdated:"",
+    	onPlatformUpdated:""
+	},
 	versionsChanged: function() {
 		var s = this.versions;
 		this.versionCollection = new enyo.Collection();

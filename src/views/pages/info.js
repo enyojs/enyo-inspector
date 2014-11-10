@@ -4,23 +4,8 @@ enyo.kind({
 		controller: {}
 	},
 	controllerChanged:function(){
-		var s = this.controller.versions;
-		var p = this.controller.platform;
-
-		this.versionCollection = new enyo.Collection();
-		this.platformCollection = new enyo.Collection();
-
-		for(var skey in s) {
-			this.versionCollection.add({name:skey, version: s[skey]});
-		}
-
-		for(var pkey in p) {
-			this.platformCollection.add({name:pkey, version: p[pkey]});
-		}
-
-		this.$.versionRepeater.setCount(this.versionCollection.length);
-		this.$.platformRepeater.setCount(this.platformCollection.length);
-
+		this.$.versionRepeater.setCount(this.controller.versionCollection.length);
+		this.$.platformRepeater.setCount(this.controller.platformCollection.length);
 		this.render();
 	},
 	components: [
@@ -45,6 +30,7 @@ enyo.kind({
 		 ]}
 	  ],
 	  setupItem: function(sender, event){
+
 		var collections = {
 				versionRepeater : 'versionCollection',
 				platformRepeater: 'platformCollection'
@@ -54,7 +40,7 @@ enyo.kind({
 		if(collection){
 			var index = event.index;
 			var item = event.item;
-			var model = this[collection].at(event.index);
+			var model = this.controller[collection].at(event.index);
 			item.$.libName.setContent(model.get('name'));
 			item.$.libVersion.setContent(model.get('version'));
 		}
