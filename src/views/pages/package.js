@@ -1,4 +1,4 @@
 enyo.depends(
 	'info.js',
-	'store.js'
+	'tools.js'
 );

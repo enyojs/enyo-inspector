@@ -28,6 +28,13 @@ enyo.kind({
     components: [
         {name:'stats', kind:'enyo.DebugExtension.StatsController'}
     ],
+	handlers: {
+		onPageChanged: 'handlePageChange'
+	},
+	handlePageChange: function(e, page) {
+		this.view.set('controller', this.$.stats);
+		this.view.controllerChanged();
+	},
 	create: function() {
 		this.inherited(arguments);
 
