@@ -20,7 +20,7 @@ enyo.kind({
       {kind: "FittableColumns", fit:true,components: [
          {classes:'sidePanel', components:[
              {name:'button1', classes: 'menuButton active', kind:'enyo.Button', content: 'Debug Info', ontap: 'changePage', page:'enyo.DebugExtension.Pages.Info'},
-             {name:'button2', classes: 'menuButton', kind:'enyo.Button', content: 'Controls', ontap: 'changePage', page:'enyo.DebugExtension.Pages.ControlTree'},
+             {name:'button2', classes: 'menuButton', kind:'enyo.Button', content: 'Control Tree', ontap: 'changePage', page:'enyo.DebugExtension.Pages.ControlTree'},
              {name:'button3', classes: 'menuButton', kind:'enyo.Button', content: 'Storage Info', ontap: 'changePage', page:'enyo.DebugExtension.Pages.Store'},
              {name:'button4', classes: 'menuButton', kind:'enyo.Button', content: 'Tools', ontap: 'changePage', page:'enyo.DebugExtension.Pages.Tools'}
          ]},
