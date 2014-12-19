@@ -9,8 +9,7 @@ function _getEnyoInfo() {
 		ret = {
 			noEnyo: false,
 			versions: enyo.version,
-			platform: enyo.platform,
-			store: enyo.store
+			platform: enyo.platform
 		};
 	}
 
@@ -27,13 +26,13 @@ enyo.kind({
     kind: 'enyo.Application',
     view: 'enyo.DebugExtension.DebugView',
     components: [
-        {name:'stats', kind:'enyo.DebugExtension.StatsController'},
-        {name:'store', kind:'enyo.DebugExtension.StoreController'}
+        {name:'stats', kind:'enyo.DebugExtension.StatsController'}
     ],
 	create: function() {
 		this.inherited(arguments);
 
 		if(!insideDevTools()) {
+			//this path will cancel out of chrome tools
 			var result = _getEnyoInfo();
 
 			this.$.stats.setVersions(result.versions);
@@ -64,11 +63,9 @@ enyo.kind({
 				this.render();
 
 				if(!result.noEnyo){
-					this.$.stats.versions = result.versions;
-					this.$.stats.platform = result.platform;
+					this.$.stats.set('versions', result.versions);
+					this.$.stats.set('platform', result.platform);
 					this.view.set('controller', this.$.stats);
-				} else {
-
 				}
 			})
 		);

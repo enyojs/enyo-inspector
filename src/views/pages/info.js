@@ -30,7 +30,6 @@ enyo.kind({
 		 ]}
 	  ],
 	  setupItem: function(sender, event){
-
 		var collections = {
 				versionRepeater : 'versionCollection',
 				platformRepeater: 'platformCollection'
