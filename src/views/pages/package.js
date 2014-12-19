@@ -1,4 +1,6 @@
 enyo.depends(
 	'info.js',
-	'tools.js'
+	'tools.js',
+	'tree.js',
+	'store.js'
 );

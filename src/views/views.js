@@ -20,8 +20,9 @@ enyo.kind({
       {kind: "FittableColumns", fit:true,components: [
          {classes:'sidePanel', components:[
              {name:'button1', classes: 'menuButton active', kind:'enyo.Button', content: 'Debug Info', ontap: 'changePage', page:'enyo.DebugExtension.Pages.Info'},
-             {name:'button2', classes: 'menuButton', kind:'enyo.Button', content: 'Storage Info'},
-             {name:'button3', classes: 'menuButton', kind:'enyo.Button', content: 'Tools', ontap: 'changePage', page:'enyo.DebugExtension.Pages.Tools'}
+             {name:'button2', classes: 'menuButton', kind:'enyo.Button', content: 'Controls', ontap: 'changePage', page:'enyo.DebugExtension.Pages.ControlTree'},
+             {name:'button3', classes: 'menuButton', kind:'enyo.Button', content: 'Storage Info', ontap: 'changePage', page:'enyo.DebugExtension.Pages.Store'},
+             {name:'button4', classes: 'menuButton', kind:'enyo.Button', content: 'Tools', ontap: 'changePage', page:'enyo.DebugExtension.Pages.Tools'}
          ]},
          {fit:true, components:[
 			 {name:'scroller', kind: 'enyo.Scroller', style:'height:100%', components:[
@@ -35,6 +36,7 @@ enyo.kind({
 		this.$.button1.removeClass('active');
 		this.$.button2.removeClass('active');
 		this.$.button3.removeClass('active');
+		this.$.button4.removeClass('active');
 		ctrl.addClass('active');
 	},
 	changePage: function(sender, event){
