@@ -3,4 +3,4 @@
 // chrome.extension.*
 
 // Create a tab in the devtools area
-chrome.devtools.panels.create("Enyo", "images/enyo.png", "panel.html");
+chrome.devtools.panels.create("Enyo", "images/enyo.png", "dist/index.html");

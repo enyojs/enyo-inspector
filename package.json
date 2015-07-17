@@ -1,0 +1,14 @@
+{
+  "main": "index.js",
+  "private": true,
+  "templateIndex": "panel.html",
+  "assets": [
+    "assets/**/*.*",
+    "appinfo.json",
+    "icon.png"
+  ],
+  "name": "enyo-inspector",
+  "styles" : [
+    "style/**/*.*"
+  ]
+}

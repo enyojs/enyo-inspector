@@ -1,3 +1,16 @@
+var
+    kind = require('enyo/kind');
+
+var
+    Application = require('enyo/Application'),
+    Control = require('enyo/Control');
+
+var
+    utils = require('enyo/utils');
+
+var
+    testView = require('../views/test');
+
 //this function is eval inside the inspected page
 function _getEnyoInfo() {
 
@@ -5,11 +18,12 @@ function _getEnyoInfo() {
 		noEnyo: true
 	}
 
+    //cannot retrieve these from a global object anymore?
 	if(typeof enyo == 'object') {
 		ret = {
 			noEnyo: false,
-			versions: enyo.version,
-			platform: enyo.platform
+			versions: 'foo',
+			platform: 'bar'
 		};
 	}
 
@@ -21,23 +35,23 @@ function insideDevTools() {
 }
 
 // This one acts in the context of the panel in the Dev Tools
-enyo.kind({
+module.exports = kind({
     name: 'enyo.DebugExtension',
-    kind: 'enyo.Application',
-    view: 'enyo.DebugExtension.DebugView',
+    kind: Application,
+    view: testView,
     components: [
-        {name:'stats', kind:'enyo.DebugExtension.StatsController'}
+        {name:'stats'}
     ],
 	handlers: {
 		onPageChanged: 'handlePageChange'
 	},
 	handlePageChange: function(e, page) {
-		this.view.set('controller', this.$.stats);
-		this.view.controllerChanged();
+		//this.view.set('controller', this.$.stats);
+		//this.view.controllerChanged();
 	},
 	create: function() {
 		this.inherited(arguments);
-
+        
 		if(!insideDevTools()) {
 			//this path will cancel out of chrome tools
 			var result = _getEnyoInfo();
@@ -63,16 +77,16 @@ enyo.kind({
 
 		chrome.devtools.inspectedWindow.eval(
 			'_getEnyoInfo()',
-			enyo.bind(this, function(result, isException) {
+			utils.bind(this, function(result, isException) {
 
 				this.canRender = true;
 				this.noEnyo = result.noEnyo;
 				this.render();
 
 				if(!result.noEnyo){
-					this.$.stats.set('versions', result.versions);
-					this.$.stats.set('platform', result.platform);
-					this.view.set('controller', this.$.stats);
+//					this.$.stats.set('versions', result.versions);
+//					this.$.stats.set('platform', result.platform);
+//					this.view.set('controller', this.$.stats);
 				}
 			})
 		);

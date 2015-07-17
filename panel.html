@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="/vendor/chrome-bootstrap.css">
-        <link rel="stylesheet" href="/vendor/layout.css">
-        <link rel="stylesheet" href="/vendor/onyx.css">
-        <link rel="stylesheet" href="/vendor/debugger.css">
-
-        <script src="/vendor/enyo.js"></script>
-        <script src="/vendor/layout.js"></script>
-        <script src="/vendor/onyx.js"></script>
-
-        <script src="/src/package.js"></script>
-        <script src="init-chrome.js"></script>
+        
+        {{stylesheets}}
+		{{if href}}<link rel="stylesheet" href="{{href}}"/>{{else}}<style>{{contents}}</style>{{/if}}{{/stylesheets}}
+		{{scripts}}<script{{if src}} src="{{src}}">{{else}}>{{contents}}{{/if}}</script>
+		{{/scripts}}
+        
     </head>
 <body class="chrome-bootstrap">
 	<div class="hello">
-		<img src="images/bean_bird_sleep.png"/>
+		<img src="assets/images/bean_bird_sleep.png"/>
 		<h1 id="hello-msg"></h1>
 		<div class="noEnyo">
 			<h3>Here are some common reasons this happens:</h3>

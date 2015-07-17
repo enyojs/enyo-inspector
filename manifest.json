@@ -4,9 +4,9 @@
     "description": "An inspector tool, to help Enyo development.",
     "devtools_page": "devtools.html",
     "icons": {
-        "16":  "images/icon16.png",
-        "48":  "images/icon48.png",
-        "128": "images/icon128.png"
+        "16":  "assets/images/icon16.png",
+        "48":  "assets/images/icon48.png",
+        "128": "assets/images/icon128.png"
     },
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "permissions": [
